@@ -23,6 +23,10 @@ public class DemoApplication {
 	}
 	
 	public static void main(String[] args) {
+		 if (System.getenv("WEB_TRUSTSTORE_PATH") != null && System.getenv("WEB_TRUSTSTORE_PASSWORD") != null) {
+	            System.setProperty("javax.net.ssl.trustStore", System.getenv("WEB_TRUSTSTORE_PATH"));
+	            System.setProperty("javax.net.ssl.trustStorePassword", System.getenv("WEB_TRUSTSTORE_PASSWORD"));
+	        }
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
